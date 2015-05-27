@@ -1,0 +1,18 @@
+/* CSS declarations go here */
+
+table {
+  border-collapse: collapse;
+}
+#goodies{
+  background-color:blue;
+}
+#baddies{
+  background-color:red;
+}
+
+table, th, td {
+   color:white;
+   border: 1px solid black;
+   text-align: center;
+   padding: 15px;
+}

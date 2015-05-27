@@ -1,0 +1,33 @@
+<head>
+  <title>Avalon</title>
+</head>
+
+<body>
+  <h1>Welcome to Avalon!</h1>
+  <p> Choose the Roles to play with:</p>
+  <div id="tables">
+    <table id='baddies'>
+      {{#each cards}}
+        {{#if evil}}
+          {{> roles}}
+        {{/if}}
+      {{/each}}
+    </table>
+    <table id='goodies'>
+      {{#each cards}}
+        {{#unless evil}}
+          {{> roles}}
+        {{/unless}}
+      {{/each}}
+    </table>
+  </div>
+</body>
+
+<template name="roles">
+  <tr>
+    <td>{{role}}</td>
+    <td>
+      <input type="checkbox"/>
+    </td>
+  </tr>
+</template>
