@@ -1,5 +1,7 @@
 if (Meteor.isClient) {
 
+  Session.set('players', [])
+
   Template.body.helpers({
 
     cards:[
@@ -17,7 +19,11 @@ if (Meteor.isClient) {
       {role:'Minion of Mordred'       , evil:true , selected:false},
       {role:'Minion of Mordred'       , evil:true , selected:false},
       {role:'Minion of Mordred'       , evil:true , selected:false}
-    ]
+    ],
+
+    players: function (){
+      return Session.get('players')
+    }
 
     //change css of cards based on selected?
     //form for all player names (in order)
@@ -29,9 +35,16 @@ if (Meteor.isClient) {
   });
 
   Template.body.events({
-    'click button': function () {
-      
-    }
+    "keypress .players": function (event) {
+    // This function is called when enter is clicked
+      if (event.charCode == 13){
+        var array = Session.get('players')
+        array.push(event.target.value);
+        Session.set('players', array)
+        // Clear text
+        event.target.value = "";
+      }
+  }
   });
 }
 

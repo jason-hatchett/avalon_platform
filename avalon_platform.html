@@ -4,6 +4,14 @@
 
 <body>
   <h1>Welcome to Avalon!</h1>
+  <p>Count: {{players.length}}</p>
+  <p>Current Players: </p>
+  <p>
+    {{#if players.length}}
+      Players: {{players}}
+    {{/if}}
+  </p>
+  <input class="players" type="text" name="username" placeholder="Type to add new player" />
   <p> Choose the Roles to play with:</p>
   <div id="tables">
     <table id='baddies'>
@@ -21,6 +29,7 @@
       {{/each}}
     </table>
   </div>
+
 </body>
 
 <template name="roles">
