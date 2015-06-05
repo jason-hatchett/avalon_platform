@@ -5,7 +5,16 @@
 <body>
   <h1>Welcome to Avalon!</h1>
   <p>Count: {{players.length}}</p>
-  <p>Current Players: </p>
+  {{#unless assigns.length}}
+    <button class="bttn">Assign the people!</button>
+  {{/unless}}
+  {{#if assigns.length}}
+  
+    {{#each assigns}}
+      {{> final}}
+    {{/each}}
+  
+  {{/if}}
   <p>
     {{#if players.length}}
       Players: {{players}}
@@ -36,7 +45,11 @@
   <tr>
     <td>{{role}}</td>
     <td>
-      <input type="checkbox"/>
+      <input type="checkbox" iden="{{id}}"/>
     </td>
   </tr>
+</template>
+
+<template name="final">
+  <p>{{role}}: {{player}}</p>
 </template>
